@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import FingerprintIcon from '@material-ui/icons/Fingerprint';
@@ -16,8 +13,6 @@ import Email from '@material-ui/icons/Email';
 import './css/main.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-
-
 
 const ranges = [
     {
@@ -39,15 +34,15 @@ const ranges = [
       display: 'flex',
       flexWrap: 'wrap',
     },
-    // margin: {
-    //   margin: theme.spacing(1),
-    // },
+    margin: {
+      margin: theme.spacing(1),
+    },
     withoutLabel: {
       marginTop: theme.spacing(3),
     },
-    // textField: {
-    //   flexBasis: 200,
-    // },
+    textField: {
+      flexBasis: 200,
+    },
     icon_fp: {
         fontSize: 50,
     },
@@ -58,11 +53,9 @@ const ranges = [
   }));
   export default function InputAdornments() {
     const classes = useStyles();
-    const [values, setValues] = React.useState({
-      amount: '',
+    const [values, setValues] = useState({
+      
       password: '',
-      weight: '',
-      weightRange: '',
       showPassword: false,
       email: ''
     });
@@ -88,11 +81,11 @@ const ranges = [
                                     <FingerprintIcon className={classes.icon_fp}/>
                                 </span>
                                 <Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center"
->
+                                  container
+                                  direction="row"
+                                  justify="center"
+                                  alignItems="center"
+                                >
                                 <FormControl className={clsx(classes.margin, classes.textField)}>
                                     <InputLabel htmlFor="adornment-password">Email</InputLabel>
                                     <Input className="input100"
@@ -101,11 +94,11 @@ const ranges = [
                                     value={values.email}
                                     onChange={handleChange('email')}
                                     endAdornment={
-                                        <InputAdornment position="end">
+                                        
                                         <IconButton >
                                             {<Email/>}
                                         </IconButton>
-                                        </InputAdornment>
+                                        
                                     }
                                     />
                                 </FormControl>
@@ -128,18 +121,18 @@ const ranges = [
                                 </FormControl>
                                 </Grid>
                                 <Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center">
+                                container
+                                direction="row"
+                                justify="center"
+                                alignItems="center">
                                 <div className={classes.butt}>
                                 <Button variant="contained" color="primary" className={classes.button}>
-        LOGIN
-      </Button>
+                                  LOGIN
+                                </Button>
                                 </div>
                                 </Grid>
                                 
-                                <div className="tes">
+                                  <div className="tes">
                                     <span className="txt1 tes">
                                         Don’t have an account?
                                     </span>
