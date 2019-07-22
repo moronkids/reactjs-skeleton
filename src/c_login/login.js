@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
@@ -13,6 +13,8 @@ import Email from '@material-ui/icons/Email';
 import './css/main.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+
+
 
 const ranges = [
     {
@@ -51,6 +53,8 @@ const ranges = [
     }
     
   }));
+
+  
   export default function InputAdornments() {
     const classes = useStyles();
     const [values, setValues] = useState({
@@ -59,6 +63,14 @@ const ranges = [
       showPassword: false,
       email: ''
     });
+    
+  //   fetch('https://reqres.in/api/user/2')
+  // .then(function(response) {
+  //   return response.json();
+  // })
+  // .then(function(myJson) {
+  //   console.log(JSON.stringify(myJson));
+  // });
   
     const handleChange = prop => event => {
       setValues({ ...values, [prop]: event.target.value });
@@ -67,6 +79,31 @@ const ranges = [
     const handleClickShowPassword = () => {
       setValues({ ...values, showPassword: !values.showPassword });
     };
+
+    const onSubmit = event => {
+      
+      event.preventDefault();
+  fetch('https://reqres.in/api/login', {
+    method: 'POST',
+    body: JSON.stringify(values),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => {
+    if (res.status === 200) {
+      this.props.history.push('/');
+    } else {
+      const error = new Error(res.error);
+      throw error;
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Error logging in please try again');
+  });
+}
+    
   
     return (
             <body>
@@ -80,12 +117,14 @@ const ranges = [
                                 <span className="login100-form-title p-b-48">
                                     <FingerprintIcon className={classes.icon_fp}/>
                                 </span>
+                                <form onSubmit={onSubmit}>
                                 <Grid
                                   container
                                   direction="row"
                                   justify="center"
                                   alignItems="center"
                                 >
+                                
                                 <FormControl className={clsx(classes.margin, classes.textField)}>
                                     <InputLabel htmlFor="adornment-password">Email</InputLabel>
                                     <Input className="input100"
@@ -112,13 +151,14 @@ const ranges = [
                                     onChange={handleChange('password')}
                                     endAdornment={
                                         <InputAdornment position="end">
-                                        <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword}>
+                                        <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword} >
                                             {values.showPassword ? <Visibility /> : <VisibilityOff />}
                                         </IconButton>
                                         </InputAdornment>
                                     }
                                     />
                                 </FormControl>
+                                
                                 </Grid>
                                 <Grid
                                 container
@@ -126,12 +166,12 @@ const ranges = [
                                 justify="center"
                                 alignItems="center">
                                 <div className={classes.butt}>
-                                <Button variant="contained" color="primary" className={classes.button}>
+                                <Button type="submit" variant="contained" color="primary" className={classes.button} type="submit" values="submit">
                                   LOGIN
                                 </Button>
                                 </div>
                                 </Grid>
-                                
+                                </form>
                                   <div className="tes">
                                     <span className="txt1 tes">
                                         Don’t have an account?
