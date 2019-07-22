@@ -31,76 +31,80 @@ const ranges = [
     },
   ];
   
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    margin: {
-      margin: theme.spacing(1),
-    },
-    withoutLabel: {
-      marginTop: theme.spacing(3),
-    },
-    textField: {
-      flexBasis: 200,
-    },
-    icon_fp: {
-        fontSize: 50,
-    },
-    butt: {
-        paddingTop: 10
-    }
-    
-  }));
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  withoutLabel: {
+    marginTop: theme.spacing(3),
+  },
+  textField: {
+    flexBasis: 200,
+  },
+  icon_fp: {
+      fontSize: 50,
+  },
+  butt: {
+      paddingTop: 10
+  }
+  
+}));
 
   
-  export default function InputAdornments() {
-    const classes = useStyles();
-    const [values, setValues] = useState({
-      
-      password: '',
-      showPassword: false,
-      email: ''
-    });
+export default function InputAdornments() {
+  const classes = useStyles();
+  const [values, setValues] = useState({
     
-  //   fetch('https://reqres.in/api/user/2')
-  // .then(function(response) {
-  //   return response.json();
-  // })
-  // .then(function(myJson) {
-  //   console.log(JSON.stringify(myJson));
-  // });
+    passmember: '',
+    showPassword: false,
+    usermember: '',
+    success: ''
+  });
   
-    const handleChange = prop => event => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-  
-    const handleClickShowPassword = () => {
-      setValues({ ...values, showPassword: !values.showPassword });
-    };
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-    const onSubmit = event => {
-      
-      event.preventDefault();
-  fetch('https://reqres.in/api/login', {
-    method: 'POST',
-    body: JSON.stringify(values),
-    headers: {
-      'Content-Type': 'application/json'
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const onSubmit = event => {
+    event.preventDefault();
+    fetch('http://54.169.134.192/apiweb_adminpusat/public/v1/member/login', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+  })
+  
+  .then(res => {
+    if (res.status === '401') {
+      console.log(res.status)
+      console.log(res.json())
+      alert("Sorry please, invalid username or password.");
+    } else if (res.status === '200') {
+      console.log(res.status)
+      console.log(res.json())
     }
+
+    return res.json(); // <-- Add this return call
   })
   .then(res => {
-    if (res.status === 200) {
-      this.props.history.push('/');
-    } else {
-      const error = new Error(res.error);
-      throw error;
+    console.log(res.success, res.message,res.data.token); // <-- Access the response keys here
+    if(res.success == 1)
+    {
+      alert(res.message);
     }
-  })
-  .catch(err => {
-    console.error(err);
-    alert('Error logging in please try again');
+    else 
+    {
+      alert(res.message);
+    }
   });
 }
     
@@ -130,8 +134,8 @@ const ranges = [
                                     <Input className="input100"
                                     id="adornment-password"
                                     type='text'
-                                    value={values.email}
-                                    onChange={handleChange('email')}
+                                    value={values.usermember}
+                                    onChange={handleChange('usermember')}
                                     endAdornment={
                                         
                                         <IconButton >
@@ -147,8 +151,8 @@ const ranges = [
                                     <Input className="input100"
                                     id="adornment-password"
                                     type={values.showPassword ? 'text' : 'password'}
-                                    value={values.password}
-                                    onChange={handleChange('password')}
+                                    value={values.passmember}
+                                    onChange={handleChange('passmember')}
                                     endAdornment={
                                         <InputAdornment position="end">
                                         <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword} >
