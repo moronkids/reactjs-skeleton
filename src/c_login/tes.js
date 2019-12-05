@@ -30,7 +30,7 @@ const ranges = [
       label: '51 to 100',
     },
   ];
-  
+
   const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
@@ -51,19 +51,19 @@ const ranges = [
     butt: {
         paddingTop: 10
     }
-    
+
   }));
 
-  
+
   export default function InputAdornments() {
     const classes = useStyles();
     const [values, setValues] = useState({
-      
+
       password: '',
       showPassword: false,
       email: ''
     });
-    
+
   //   fetch('https://reqres.in/api/user/2')
   // .then(function(response) {
   //   return response.json();
@@ -71,11 +71,11 @@ const ranges = [
   // .then(function(myJson) {
   //   console.log(JSON.stringify(myJson));
   // });
-  
+
     const handleChange = prop => event => {
       setValues({ ...values, [prop]: event.target.value });
     };
-  
+
     const handleClickShowPassword = () => {
       setValues({ ...values, showPassword: !values.showPassword });
     };
@@ -102,7 +102,7 @@ const ranges = [
         alert('Error logging in please try again');
       });
     }
-  
+
     return (
             <body>
                 <div className="limiter">
@@ -130,15 +130,15 @@ const ranges = [
                                     value={values.email}
                                     onChange={handleChange('email')}
                                     endAdornment={
-                                        
+
                                         <IconButton >
                                             {<Email/>}
                                         </IconButton>
-                                        
+
                                     }
                                     />
                                 </FormControl>
-    
+
                                 <FormControl className={clsx(classes.margin, classes.textField)}>
                                     <InputLabel htmlFor="adornment-password">Password</InputLabel>
                                     <Input className="input100"
@@ -168,16 +168,14 @@ const ranges = [
                                 </Button>
                                 </div>
                                 </Grid>
-                                
+
                                   <div className="tes">
                                     <span className="txt1 tes">
                                         Don’t have an account?
                                     </span>
-    
                                     <a className="tes" href="#">
                                         Sign Up
                                     </a>
-                        
                                 </div>
                             </form>
                         </div>
@@ -185,5 +183,5 @@ const ranges = [
                 </div>
             </body>
         );
-        
+
     }
