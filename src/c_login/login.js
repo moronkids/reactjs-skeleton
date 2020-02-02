@@ -107,7 +107,7 @@ export default function InputAdornments() {
       localStorage.setItem('token', res.token);
     }
   })
-}
+  }
     return (
             <body>
                 <div className="limiter">
