@@ -30,7 +30,7 @@ const ranges = [
       label: '51 to 100',
     },
   ];
-  
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -51,20 +51,19 @@ const useStyles = makeStyles(theme => ({
   butt: {
       paddingTop: 10
   }
-  
+
 }));
 
-  
+
+
 export default function InputAdornments() {
   const classes = useStyles();
   const [values, setValues] = useState({
-    
-    passmember: '',
-    showPassword: false,
-    usermember: '',
-    success: ''
+    loggedInStatus: 'out',
+    user: {},
+    login: localStorage.getItem('email') ? 'masuk ' : 'zonk'
   });
-  
+
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -73,42 +72,42 @@ export default function InputAdornments() {
     setValues({ ...values, showPassword: !values.showPassword });
   };
 
+  const handleLogin = () => {
+    setValues({ ...values, loggedInStatus: 'in'});
+
+  }
+
   const onSubmit = event => {
     event.preventDefault();
-    fetch('http://54.169.134.192/apiweb_adminpusat/public/v1/member/login', {
+    fetch('https://reqres.in/api/login', {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {
         'Content-Type': 'application/json'
-      }
-  })
-  
-  .then(res => {
-    if (res.status === '401') {
-      console.log(res.status)
-      console.log(res.json())
-      alert("Sorry please, invalid username or password.");
-    } else if (res.status === '200') {
-      console.log(res.status)
-      console.log(res.json())
-    }
+        // "Content-Type": "text/plain",
+        // "Authorization": "Bearer 766cd8232fd71ae094b7f41ce29a5e43b0a27681"
+        // 'Content-Type': 'application/x-www-form-urlencoded'
+      },
 
+  })
+
+  .then(res => {
+    console.log(res)
+    if (res.status === 400) {
+      alert('gagal login')
+    } else if (res.status === 200) {
+      alert("Success login")
+      handleLogin();
+      localStorage.setItem('email', values.email);
+    }
     return res.json(); // <-- Add this return call
   })
   .then(res => {
-    console.log(res.success, res.message,res.data.token); // <-- Access the response keys here
-    if(res.success == 1)
-    {
-      alert(res.message);
+    if(res.token != null){
+      localStorage.setItem('token', res.token);
     }
-    else 
-    {
-      alert(res.message);
-    }
-  });
+  })
 }
-    
-  
     return (
             <body>
                 <div className="limiter">
@@ -116,7 +115,8 @@ export default function InputAdornments() {
                         <div className="wrap-login100">
                             <form className="validate-form">
                                 <span className="login100-form-title p-b-26">
-                                    Welcome
+                                    Welcome | {values.login} <br></br>
+
                                 </span>
                                 <span className="login100-form-title p-b-48">
                                     <FingerprintIcon className={classes.icon_fp}/>
@@ -128,31 +128,30 @@ export default function InputAdornments() {
                                   justify="center"
                                   alignItems="center"
                                 >
-                                
+
                                 <FormControl className={clsx(classes.margin, classes.textField)}>
                                     <InputLabel htmlFor="adornment-password">Email</InputLabel>
                                     <Input className="input100"
                                     id="adornment-password"
                                     type='text'
-                                    value={values.usermember}
-                                    onChange={handleChange('usermember')}
+                                    value={values.email}
+                                    onChange={handleChange('email')}
                                     endAdornment={
-                                        
+
                                         <IconButton >
                                             {<Email/>}
                                         </IconButton>
-                                        
+
                                     }
                                     />
                                 </FormControl>
-    
                                 <FormControl className={clsx(classes.margin, classes.textField)}>
                                     <InputLabel htmlFor="adornment-password">Password</InputLabel>
                                     <Input className="input100"
                                     id="adornment-password"
                                     type={values.showPassword ? 'text' : 'password'}
-                                    value={values.passmember}
-                                    onChange={handleChange('passmember')}
+                                    value={values.password}
+                                    onChange={handleChange('password')}
                                     endAdornment={
                                         <InputAdornment position="end">
                                         <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword} >
@@ -162,7 +161,6 @@ export default function InputAdornments() {
                                     }
                                     />
                                 </FormControl>
-                                
                                 </Grid>
                                 <Grid
                                 container
@@ -180,11 +178,9 @@ export default function InputAdornments() {
                                     <span className="txt1 tes">
                                         Don’t have an account?
                                     </span>
-    
                                     <a className="tes" href="#">
                                         Sign Up
                                     </a>
-                        
                                 </div>
                             </form>
                         </div>
@@ -192,5 +188,5 @@ export default function InputAdornments() {
                 </div>
             </body>
         );
-        
+
     }
