@@ -8,12 +8,14 @@ import {PrivateRoute} from './support/helpers/privateRoute';
 // import PrivateRoute from './support/helpers/privateRoute';
 import Login from './c_login/tes';
 import Home from './c_home/home';
+
 // import MaterialIcon from 'react-material-iconic-font'
+
 
 function App() {
   return (
     <Router>
-      <Route path="/login" component={Login} />
+      <Route path="/(login|)" component={Login} />
       <PrivateRoute path="/home" component={Home} />
     </Router>
   );

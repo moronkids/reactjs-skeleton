@@ -1,4 +1,5 @@
 import React, {useState, useEffect, Component} from 'react';
+import { Redirect } from 'react-router-dom'
 
 export default function Home(props) {
     console.log(props)
@@ -16,12 +17,19 @@ export default function Home(props) {
     useEffect(() => {
         checkStatus();
     });
-
+    const logOut = () => {
+        alert('logout');
+        localStorage.clear();
+        window.location.href = '/home';
+    }
     return(
         <div>
             <p>Status :</p>
             <br/>
             <h3>{stat.loggedStatus}</h3>
+            <br/>
+            <h1>Logout</h1>
+            <button type="submit" onClick={logOut}>Submit</button>
         </div>
     );
 }
