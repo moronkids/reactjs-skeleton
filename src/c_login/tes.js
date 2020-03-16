@@ -30,20 +30,27 @@ class Login extends Component{
           },
         })
           .then(res => {
-            console.log(res)
+            console.log({sts : res})
             if (res.status === 400) {
+              this.setState({
+                loading: false
+              })
+              // localStorage.setItem('email', this.state.email);
+              this.props.history.push('/login');
+              // alert(res)
             } else if (res.status === 200) {
               this.setState({
                 loading:false
               })
               localStorage.setItem('email', this.state.email);
               this.props.history.push('/home');
+              alert(res.status)
             }
             else{
+              this.props.history.push('/login');
               alert('network occured error')
             }
             return res.json();
-            console.log(res.token)
           })
           .then(res => {
 

@@ -92,7 +92,8 @@ export default function InputAdornments() {
   })
 
   .then(res => {
-    console.log(res)
+    console.log({hasil: res})
+    console.log({tes: res.status})
     if (res.status === 400) {
       alert('gagal login')
     } else if (res.status === 200) {

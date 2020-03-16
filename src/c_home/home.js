@@ -2,7 +2,6 @@ import React, {useState, useEffect, Component} from 'react';
 import { Redirect } from 'react-router-dom'
 
 export default function Home(props) {
-    console.log(props)
     const [stat, setStat] = useState({
         loggedStatus : 'Belum Login'
     })
