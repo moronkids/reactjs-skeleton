@@ -9,7 +9,7 @@ export const PrivateRoute = ({component:Component, ...rest}) =>
         localStorage.getItem('email') ?
            (<Component {...props} />):
            (<Redirect to={{
-               pathname:"/login",
+               pathname:"/",
                state: {from:props.location}
            }}/>)
         }
