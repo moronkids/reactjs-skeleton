@@ -47,11 +47,11 @@ class Login extends Component {
               loading: false
             })
             localStorage.setItem('email', this.state.email);
-            this.props.history.push('/home');
+            this.props.history.push('/dor/home');
             alert(res.status)
           }
           else {
-            this.props.history.push('/login');
+            this.props.history.push('/');
             alert('network occured error')
           }
           return res.json();

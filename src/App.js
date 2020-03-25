@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Route path="/(login|)" component={Login} />
-      <PrivateRoute path="/home" component={Home} />
+      <PrivateRoute path="/dor/home" component={Home} />
     </Router>
   );
 }
