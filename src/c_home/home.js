@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import Layout from './layout';
 import BurgerBuilder from '../containers/BurgerBuilder/BurgerBuilder';
@@ -6,13 +6,13 @@ import Burger from '../c_burger/Burger';
 
 export default function Home(props) {
     const [stat, setStat] = useState({
-        loggedStatus : 'Belum Login'
+        loggedStatus: 'Belum Login'
     })
 
     const checkStatus = () => {
         let status = localStorage.getItem('email');
         if (status != null) {
-            setStat({ ...stat, loggedStatus: "Sudah login"});
+            setStat({ ...stat, loggedStatus: "Sudah login" });
         }
     }
 
@@ -23,14 +23,14 @@ export default function Home(props) {
     const logOut = () => {
         alert('logout');
         localStorage.clear();
-        window.location.href = '/home';
+        window.location.href = '/dor/home';
     }
-    return(
+    return (
         <div>
             <p>Status :</p>
-            <br/>
+            <br />
             <h3>{stat.loggedStatus}</h3>
-            <br/>
+            <br />
             <Layout>
                 <BurgerBuilder></BurgerBuilder>
                 <Burger></Burger>

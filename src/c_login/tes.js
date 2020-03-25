@@ -51,7 +51,7 @@ class Login extends Component {
             alert(res.status)
           }
           else {
-            this.props.history.push('/');
+            this.props.history.push('/login');
             alert('network occured error')
           }
           return res.json();
