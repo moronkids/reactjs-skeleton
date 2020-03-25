@@ -1,6 +1,6 @@
 {
-  "homepage": "http://moronkids.github.io/kmp",
-  "name": "kmp",
+  "homepage": "http://moronkids.github.io/reactjs-skeleton",
+  "name": "reactjs-skeleton",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
