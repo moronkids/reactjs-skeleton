@@ -14,8 +14,8 @@ import Layout from './c_home/layout';
 function App() {
   return (
     <Router>
-      <Route path="/" component={Login} />
       <PrivateRoute path="/dor/home" component={Home} />
+      <Route path="/" component={Login} />
     </Router>
   );
 }
