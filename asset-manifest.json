@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/reactjs-skeleton/static/css/main.de5c6f16.chunk.css",
+    "main.js": "/reactjs-skeleton/static/js/main.739cd11e.chunk.js",
+    "main.js.map": "/reactjs-skeleton/static/js/main.739cd11e.chunk.js.map",
+    "runtime~main.js": "/reactjs-skeleton/static/js/runtime~main.149310c2.js",
+    "runtime~main.js.map": "/reactjs-skeleton/static/js/runtime~main.149310c2.js.map",
+    "static/css/2.d5fd2ecb.chunk.css": "/reactjs-skeleton/static/css/2.d5fd2ecb.chunk.css",
+    "static/js/2.56a8474f.chunk.js": "/reactjs-skeleton/static/js/2.56a8474f.chunk.js",
+    "static/js/2.56a8474f.chunk.js.map": "/reactjs-skeleton/static/js/2.56a8474f.chunk.js.map",
+    "index.html": "/reactjs-skeleton/index.html",
+    "precache-manifest.738af5dfb7f5efd158cadbee48de4a2b.js": "/reactjs-skeleton/precache-manifest.738af5dfb7f5efd158cadbee48de4a2b.js",
+    "service-worker.js": "/reactjs-skeleton/service-worker.js",
+    "static/css/2.d5fd2ecb.chunk.css.map": "/reactjs-skeleton/static/css/2.d5fd2ecb.chunk.css.map",
+    "static/css/main.de5c6f16.chunk.css.map": "/reactjs-skeleton/static/css/main.de5c6f16.chunk.css.map",
+    "static/js/2.56a8474f.chunk.js.LICENSE.txt": "/reactjs-skeleton/static/js/2.56a8474f.chunk.js.LICENSE.txt"
+  }
+}
