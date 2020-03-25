@@ -15,8 +15,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute path="/dor/home" component={Home} />
-        <Route path="/(login|)" component={Login} />
+        <Route path="/" component={Home} />
+        {/* <PrivateRoute path="/dor/home" component={Home} />
+        <Route path="/(login|)" component={Login} /> */}
       </Switch>
     </Router>
   );
