@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import { Divider } from '@material-ui/core';
+// import { Divider } from '@material-ui/core';
 
 export const PrivateRoute = ({component:Component, ...rest}) =>
 (    <Route
