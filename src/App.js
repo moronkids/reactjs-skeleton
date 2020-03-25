@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { PrivateRoute } from './support/helpers/privateRoute';
 // import PrivateRoute from './support/helpers/privateRoute';
 import Login from './c_login/tes';
-import Home from './c_home/dor/home';
+import Home from './c_home/home';
 import Layout from './c_home/layout';
 // import MaterialIcon from 'react-material-iconic-font'
 
