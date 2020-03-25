@@ -1,5 +1,8 @@
 import React, { useState, useEffect, Component } from 'react';
 import clsx from 'clsx';
+import styles from './bs.module.css';
+import globalStyles from '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import cx from 'classnames'
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -13,8 +16,6 @@ import Email from '@material-ui/icons/Email';
 import './css/main.css';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-
-
 
 const ranges = [
     {
