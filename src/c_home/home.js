@@ -27,16 +27,16 @@ export default function Home(props) {
     }
     return (
         <div>
-            <p>Status :</p>
+            {/* <p>Status :</p>
             <br />
             <h3>{stat.loggedStatus}</h3>
-            <br />
+            <br /> */}
             <Layout>
                 <BurgerBuilder></BurgerBuilder>
                 <Burger></Burger>
             </Layout>
-            <h1>Logout</h1>
-            <button type="submit" onClick={logOut}>Submit</button>
+            {/* <h1>Logout</h1>
+            <button type="submit" onClick={logOut}>Submit</button> */}
         </div>
     );
 }
