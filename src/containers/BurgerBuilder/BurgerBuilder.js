@@ -96,6 +96,7 @@ class BurgerBuilder extends Component {
     }
     purchaseContinueHandler = () => {
         //   alert('You countinued order')
+        // console.log('')
         this.setState({ loading: true });
         const order = {
             ingredients: this.state.ingredients,
@@ -129,9 +130,7 @@ class BurgerBuilder extends Component {
 
         let orderSummary = null;
 
-        if (this.state.loading) {
-            orderSummary = <Spinner></Spinner>;
-        }
+
 
         let burger = this.state.error ? <p className="mt-5 jumbotron">Sorry our page failed to load, cause fetch data from server is error :((</p>: <Spinner/>;
 
@@ -156,6 +155,10 @@ class BurgerBuilder extends Component {
         purchaseCanceled={this.purchaseCancelHandler}
         purchaseContinue={this.purchaseContinueHandler}
     />;
+            if (this.state.loading) {
+            orderSummary = <Spinner className="mt-5 jumbotron"></Spinner>;
+            console.log('pernahmasuk', orderSummary)
+        }
         }
         return (
             <>
