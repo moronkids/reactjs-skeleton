@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import Layout from './layout';
 import BurgerBuilder from '../containers/BurgerBuilder/BurgerBuilder';
 import Burger from '../c_burger/Burger';
-
+import Checkout from '../containers/Checkout/Checkout'
 export default function Home(props) {
     const [stat, setStat] = useState({
         loggedStatus: 'Belum Login'
@@ -34,6 +34,7 @@ export default function Home(props) {
             <Layout>
                 <BurgerBuilder></BurgerBuilder>
                 <Burger></Burger>
+                <Checkout/> 
             </Layout>
             {/* <h1>Logout</h1>
             <button type="submit" onClick={logOut}>Submit</button> */}

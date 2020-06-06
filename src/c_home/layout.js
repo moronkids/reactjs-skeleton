@@ -3,8 +3,10 @@ import dor from '../hoc/Aux';
 import BurgerBuilder from '../containers/BurgerBuilder/BurgerBuilder'
 import Toolbar from '../c_burger/Navigation/Toolbar/Toolbar'
 import SideDrawer from '../c_burger/Navigation/SideDrawer/SideDrawer'
-
+import Checkout from '../containers/Checkout/Checkout'
+import { withRouter } from 'react-router-dom';
 class Layout extends Component  {
+    // console.log(this.props.childern)
     state = {
         showSideDrawer: false
     }
@@ -25,8 +27,9 @@ class Layout extends Component  {
                 open={this.state.showSideDrawer}
                 closed={this.sideDrawerClosedHandler}/>
                 <main>
-                    {this.props.childern}
-                    <BurgerBuilder />
+                    
+                    {this.props.children}
+                    {/* <BurgerBuilder /> */}
                 </main>
             </>
         );
