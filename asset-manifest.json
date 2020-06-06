@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/reactjs-skeleton/static/css/main.fc0ff46a.chunk.css",
-    "main.js": "/reactjs-skeleton/static/js/main.35898260.chunk.js",
-    "main.js.map": "/reactjs-skeleton/static/js/main.35898260.chunk.js.map",
-    "runtime~main.js": "/reactjs-skeleton/static/js/runtime~main.aece5ade.js",
-    "runtime~main.js.map": "/reactjs-skeleton/static/js/runtime~main.aece5ade.js.map",
-    "static/css/2.d5fd2ecb.chunk.css": "/reactjs-skeleton/static/css/2.d5fd2ecb.chunk.css",
-    "static/js/2.913faad5.chunk.js": "/reactjs-skeleton/static/js/2.913faad5.chunk.js",
-    "static/js/2.913faad5.chunk.js.map": "/reactjs-skeleton/static/js/2.913faad5.chunk.js.map",
-    "index.html": "/reactjs-skeleton/index.html",
-    "precache-manifest.57fd1c7c87dbff5bb92a0e24cdfe8763.js": "/reactjs-skeleton/precache-manifest.57fd1c7c87dbff5bb92a0e24cdfe8763.js",
-    "service-worker.js": "/reactjs-skeleton/service-worker.js",
-    "static/css/2.d5fd2ecb.chunk.css.map": "/reactjs-skeleton/static/css/2.d5fd2ecb.chunk.css.map",
-    "static/css/main.fc0ff46a.chunk.css.map": "/reactjs-skeleton/static/css/main.fc0ff46a.chunk.css.map",
-    "static/media/burger-logo.png": "/reactjs-skeleton/static/media/burger-logo.b8503d26.png"
+    "main.css": "./static/css/main.c4d8100d.chunk.css",
+    "main.js": "./static/js/main.6708756a.chunk.js",
+    "main.js.map": "./static/js/main.6708756a.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/css/2.d901f225.chunk.css": "./static/css/2.d901f225.chunk.css",
+    "static/js/2.6eaae4fc.chunk.js": "./static/js/2.6eaae4fc.chunk.js",
+    "static/js/2.6eaae4fc.chunk.js.map": "./static/js/2.6eaae4fc.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.aa41c00d08234f00505e1ec5351c6954.js": "./precache-manifest.aa41c00d08234f00505e1ec5351c6954.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.d901f225.chunk.css.map": "./static/css/2.d901f225.chunk.css.map",
+    "static/css/main.c4d8100d.chunk.css.map": "./static/css/main.c4d8100d.chunk.css.map",
+    "static/media/burger-logo.png": "./static/media/burger-logo.b8503d26.png"
   }
 }
