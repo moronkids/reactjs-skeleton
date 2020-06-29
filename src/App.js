@@ -13,6 +13,7 @@ import Layout from "./c_home/layout";
 import Checkout from "./containers/Checkout/Checkout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 // import MaterialIcon from 'react-material-iconic-font'
+import Orders from './containers/Orders/Orders'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         {/* <BurgerBuilder/> */}
         <Switch>
           <Route path="/checkout" component={Checkout} />
+          <Route path="/orders" component={Orders} />
           <Route path="/" exact component={BurgerBuilder} />
         </Switch>
       </Layout>

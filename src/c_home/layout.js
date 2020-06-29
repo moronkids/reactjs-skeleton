@@ -22,11 +22,11 @@ class Layout extends Component  {
         return(
             <>
                 {/* <Toolbar /> */}
-                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
+                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} style={{paddingTop: '90px'}}/>
                 <SideDrawer
                 open={this.state.showSideDrawer}
                 closed={this.sideDrawerClosedHandler}/>
-                <main>
+                <main style={{paddingTop: '60px'}}>
                     
                     {this.props.children}
                     {/* <BurgerBuilder /> */}
